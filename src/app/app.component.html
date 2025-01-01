@@ -1,0 +1,30 @@
+<main>
+  <div class="m-1">
+    <div class="tabs is-centered is-boxed">
+      <ul>
+        <li class="is-active" [class.is-active]="activeTab === 'token'" (click)="setActiveTab('token')">
+          <a>
+            <span class="icon is-small"><i class="fa fa-solid fa-hashtag"></i></span>
+            <span>Token</span>
+          </a>
+        </li>
+        <li [class.is-active]="activeTab === 'config'" (click)="setActiveTab('config')">
+          <a>
+            <span class="icon is-small"><i class="fa fa-solid fa-user"></i></span>
+            <span>Configurações</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tab-content">
+    @if (activeTab === 'config') {
+      <app-login-page></app-login-page>
+    }@else {
+      <app-token-page></app-token-page>
+    }
+  </div>
+
+</main>
+<router-outlet />

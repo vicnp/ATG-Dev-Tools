@@ -1,0 +1,61 @@
+<div class="p-5">
+    <div class="field">
+        <label class="label">Token</label>
+        <div class="control has-icons-left has-icons-right">
+          <input class="input is-success"
+           type="text"
+           placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9" 
+           (click)="copyToClipBoard('teste')"
+           >
+          <span class="icon is-small is-left">
+            <i class="fa fa-solid fa-key"></i>
+          </span>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Usuário</label>
+        <div class="control has-icons-left has-icons-right">
+          <input class="input is-info"
+           type="text"
+           placeholder="Victor Nascimento Peroba" 
+           >
+          <span class="icon is-small is-left">
+            <i class="fa fa-solid fa-user"></i>
+          </span>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Empresa</label>
+        <div class="control has-icons-left has-icons-right">
+          <input class="input is-info"
+           type="text"
+           placeholder="QL03 - 174" 
+           >
+          <span class="icon is-small is-left">
+            <i class="fa fa-solid fa-building"></i>
+          </span>
+        </div>
+      </div>
+      <div class="field has-addons">
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="empresa" [(ngModel)]="selectedEmpresa">
+                @for (empresa of empresas; track $index) {
+                    <option [value]="empresa.id">{{empresa.nome}}</option>
+                }
+            </select>
+          </div>
+        </div>
+        <div class="control">
+          <button 
+           type="submit"
+           [ngClass]="carregandoEmpresa()"
+           (click)="alterarEmpresaAlocadaUsuario()"
+           >
+                Alterar
+          </button>
+        </div>
+      </div>
+
+      <button [ngClass]="carregandoRecuperacaoToken()">Recuperar</button>
+</div>
